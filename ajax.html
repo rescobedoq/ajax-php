@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajax - Example</title>
+		<script src="jquery-3.5.1.min.js"></script>
+	<script>
+		function ajaxFunction(){
+		$.ajax({
+  url: "ajax.php",
+  beforeSend: function( xhr ) {
+    xhr.overrideMimeType( "text/plain; charset=utf-8;" );
+  }
+})
+  .done(function( data ) {
+    if ( console && console.log ) {
+      console.log( "result:", data );
+	    $('#ajaxResult').html(data);
+    }
+  });}
+	</script>
+	</head>
+	<body>
+		<button type="button" onclick="ajaxFunction()">Ajax function</button>
+		<div id="ajaxResult"></div>
+	</body>
+</html>
